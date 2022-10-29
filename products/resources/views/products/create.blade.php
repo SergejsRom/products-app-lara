@@ -28,8 +28,14 @@
                         <select class="form-control m-1" required type="select" name="attribute">
                         
                         <?php
+                            $attributes = match ($att) {
+                                "DVD" => ["MB"],
+                                "Furniture" => ["W", "H", "L"],
+                                "Books" => ["Weight"],
+                                default => [],
+                            };
                             echo "Values:";
-                            foreach ($attributes as $att => $attribute)
+                            foreach ($attribute as $att => $attribute)
                             echo "<input class='form-control m-1' required type='text' name='value'>";
                         ?>
                         

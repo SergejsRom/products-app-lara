@@ -42,18 +42,18 @@ class ProductController extends Controller
         //     'Furniture',
         //     'Books'
         //   ]); 
-        $attributes = match ($attribute) {
+        $attributes = match ($att) {
             "DVD" => ["MB"],
             "Furniture" => ["W", "H", "L"],
             "Books" => ["Weight"],
-            default => ["Please select"],
+            default => [],
         };
 
         Product::create([
             'SKU' => $request->input('SKU'),
             'name' => $request->input('name'),
             'price' => $request->input('price'),
-            'attributes' => $request->input('attributes')
+            'attributes' => $request->input('attribute')
         ]);
        
         return redirect()->route('products.index');   
