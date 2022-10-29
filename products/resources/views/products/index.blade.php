@@ -3,7 +3,7 @@
         <div class="container">
             <div class="row row-cols-4">
                 @foreach ($products as $product)
-                <div class="col">
+                <div class="col product-list">
                   <h3>{{$product->SKU}}</h3>  
                   <h5>{{$product->name}}</h5>  
                   <h5>{{$product->price}}</h5>  

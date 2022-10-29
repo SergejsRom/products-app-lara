@@ -6,3 +6,18 @@
 
 // Bootstrap
 @import 'bootstrap/scss/bootstrap';
+
+
+.product-list {
+    border: 1px solid grey;
+    margin: 5px;
+    padding: 5px;
+    display: grid;
+    justify-items: center;
+}
+.row {
+    justify-content: space-evenly;
+}
+.row-cols-4 > * {
+    width: 20%;
+}

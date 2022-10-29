@@ -15,7 +15,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::all()->sortBy('name');
+        $products = Product::all()->sortBy('SKU');
         return view('products.index', compact('products'));
     }
 
@@ -26,7 +26,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        return view('products.create');
     }
 
     /**
@@ -37,7 +37,26 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // define('attributes', [
+        //     'DVD',
+        //     'Furniture',
+        //     'Books'
+        //   ]); 
+        $attributes = match ($attribute) {
+            "DVD" => ["MB"],
+            "Furniture" => ["W", "H", "L"],
+            "Books" => ["Weight"],
+            default => ["Please select"],
+        };
+
+        Product::create([
+            'SKU' => $request->input('SKU'),
+            'name' => $request->input('name'),
+            'price' => $request->input('price'),
+            'attributes' => $request->input('attributes')
+        ]);
+       
+        return redirect()->route('products.index');   
     }
 
     /**
