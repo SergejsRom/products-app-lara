@@ -13,7 +13,7 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
+                            @livewire('product-form')
                     <form action="{{ route('products.store') }}" method="post" class="flex">
                         
                         @csrf
@@ -27,7 +27,7 @@
                         Attributes:
                         <select class="form-control m-1" class="form-control" name="attribute">
 
-                            <option value="{{$att}}" @selected('Select')>{{$att}}</option>
+                            {{-- <option value="{{$att}}" @selected('Select')>{{$att}}</option> --}}
                             
                                 
                         </select>
