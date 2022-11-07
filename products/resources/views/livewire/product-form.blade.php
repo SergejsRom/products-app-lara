@@ -12,24 +12,11 @@
         Attributes:
         <select class="form-control m-1" class="form-control" name="attribute">
 
-            {{-- <option value="{{$att}}" @selected('Select')>{{$att}}</option> --}}
+            <option value="{{$att}}" @selected('Select')>{{$att}}</option>
             
                 
         </select>
         Values:
-            
-        
-        {{-- <?php
-            $attributes = match ($att) {
-                "DVD" => ["MB"],
-                "Furniture" => ["W", "H", "L"],
-                "Books" => ["Weight"],
-                default => [],
-            };
-            echo "Values:";
-            foreach ($attribute as $att => $attribute)
-            echo "<input class='form-control m-1' required type='text' name='value'>";
-        ?> --}}
         
         <button type="submit" class="btn btn-primary m-2">Save</button>
     </div>
