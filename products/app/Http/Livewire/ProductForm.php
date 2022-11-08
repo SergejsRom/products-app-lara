@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use App\Models\Attname;
 use App\Models\Attvalue;
+use App\Models\Product;
 use Livewire\Component;
 
 class ProductForm extends Component
@@ -15,10 +16,10 @@ class ProductForm extends Component
     public $attvalue;
 
 
-    public function mount() {
+    public function mount()
+    {
         $this->attnames = Attname::all();
         $this->attvalues = collect();
-
     }
 
     public function render()
@@ -26,7 +27,14 @@ class ProductForm extends Component
         return view('livewire.product-form');
     }
 
-    public function updatedAttname($value) {
-        $this->attvalues = Attvalue::where('attvalue_id', $value)->get();
+    // public function updatedAttname($value) 
+    // {
+    //     $this->attvalues = Attvalue::where('attnames_id', $value)->get();
+    //     $this->attvalue = $this->attvalues->first()->id;
+    // }
+    public function updatedAttname($value)
+    {
+        $this->attvalues = Attvalue::where('attnames_id', $value)->get();
+        $this->attvalue = $this->attvalues->first()->id;
     }
 }

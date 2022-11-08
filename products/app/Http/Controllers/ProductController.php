@@ -25,25 +25,8 @@ class ProductController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-        $mb = ['MB'];
-        $furniture = ['width', 'height', 'lenght'];
-        $books = ['weight'];
-       $att = ['DVD', 'Furniture', 'Books'];
-       // foreach ($att as $attr) {
-        if ($att == 'DVD') {
-            return $mb;
-        }
-        elseif ($att == 'Furniture') {
-            return $furniture;
-        }
-        elseif ($att == 'Books') {
-            return $books;
-        }
-       // return $att;
-    //    }
-       
-        return view('products.create', compact('att'));
+    {  
+        return view('products.create');
     }
 
     /**
@@ -54,53 +37,6 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        // define('attributes', [
-        //     'DVD',
-        //     'Furniture',
-        //     'Books'
-        //   ]); 
-        // $attributes = match ($att) {
-        //     "DVD" => ["MB"],
-        //     "Furniture" => ["W", "H", "L"],
-        //     "Books" => ["Weight"],
-        //     default => [],
-        // };
-        
-
-        Product::create([
-            'SKU' => $request->input('SKU'),
-            'name' => $request->input('name'),
-            'price' => $request->input('price'),
-            'attributes' => $request->input('attribute'),
-            'MB' => $request->input('MB'),
-            'Weight' => $request->input('Weight'),
-            'Width' => $request->input('Width'),
-            'Height' => $request->input('Height'),
-            'Lenght' => $request->input('Lenght'),
-            
-        ]);
-        $attributes = ['DVD', 'Furniture', 'Books'];
-        $att_values = [
-            'MB' => false,
-            'Weight' => false,
-            'Width' => false,
-            'Height' => false,
-            'Lenght' => false,
-        ];
-    
-        foreach ($attributes as $attribute) {
-            match($attribute) {
-                'Furniture' => [
-                    $att_values['Width'] = true,
-                    $att_values['Height'] = true,
-                    $att_values['Lenght'] = true,
-                ],
-                'DVD' => $att_values['MB'] = true,
-                'Books' => $att_values['Weight'] = true,
-            };
-        }
-    
-        var_export($att_values);
        
         return redirect()->route('products.index');
     }
