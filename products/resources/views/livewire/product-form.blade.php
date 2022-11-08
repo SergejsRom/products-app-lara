@@ -10,14 +10,23 @@
         Price:
         <input class="form-control m-1" required type="number" name="price">
         Attributes:
-        <select class="form-control m-1" class="form-control" name="attribute">
+        <select wire:model="attname"
+            class="form-control m-1" name="attribute">
+            <option value="">-- Choose attribute --</option>
 
-            <option value="{{$att}}" @selected('Select')>{{$att}}</option>
-            
-                
+            @foreach ($attnames as $attname)
+            <option value="{{$attname->id}}">{{$attname->att_name}}</option>
+            @endforeach
+            {{-- <option value="{{$att}}" @selected('Select')>{{$att}}</option> --}}
         </select>
-        Values:
+        <div wire:model="attvalue">
+        @foreach ($attvalues as $attvalue)
+        {{$attvalue -> att_value}}
+        <input  type="text">
+ 
         
+        @endforeach
+    </div>
         <button type="submit" class="btn btn-primary m-2">Save</button>
     </div>
     </form>

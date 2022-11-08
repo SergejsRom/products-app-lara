@@ -13,12 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('attributes_values', function (Blueprint $table) {
+        Schema::create('attnames', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('attributes_names_id');
-
-            $table->foreign('attributes_names_id')->references('id')->on('attributes_names');
-            $table->string('att_value')->nullable();
+            $table->string('att_name')->nullable();
             $table->timestamps();
         });
     }
@@ -30,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('attnames');
     }
 };
