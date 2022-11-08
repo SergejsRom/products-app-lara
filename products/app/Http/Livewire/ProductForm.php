@@ -20,6 +20,7 @@ class ProductForm extends Component
     {
         $this->attnames = Attname::all();
         $this->attvalues = collect();
+       
     }
 
     public function render()
@@ -34,7 +35,9 @@ class ProductForm extends Component
     // }
     public function updatedAttname($value)
     {
+        dd($value);
         $this->attvalues = Attvalue::where('attnames_id', $value)->get();
         $this->attvalue = $this->attvalues->first()->id;
+        
     }
 }
