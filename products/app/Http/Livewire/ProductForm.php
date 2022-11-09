@@ -15,36 +15,33 @@ class ProductForm extends Component
     public $price;
 
     public $attnames;
-    public $attvalues;
+   // public $attvalues;
+    public $attvalues = [];
 
     public $attname;
     public $attvalue;
-
+    
     
 
 
-    // public function mount()
-    // {
-    //     $this->attnames = Attname::all();
-    //     $this->attvalues = collect();
+     public function mount()
+     {
+         $this->attnames = Attname::all();
+         $this->attvalues = collect();
        
-    // }
+     }
 
     public function render()
     {
         return view('livewire.product-form');
     }
 
-    // public function updatedAttname($value) 
-    // {
-    //     $this->attvalues = Attvalue::where('attnames_id', $value)->get();
-    //     $this->attvalue = $this->attvalues->first()->id;
-    // }
-    // public function updatedAttname($value)
-    // {
-        
-    //     $this->attvalues = Attvalue::where('attnames_id', $value)->get();
-    //     $this->attvalue = $this->attvalues->first()->id;
-        
-    // }
+     public function updatedAttname($value) 
+     {
+         $this->attvalues = Attvalue::where('attnames_id', $value)->get();
+         $this->attvalue = $this->attvalues->first()->id;
+        //dd($this->attvalue);
+     }
+
+     
 }

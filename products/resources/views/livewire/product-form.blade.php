@@ -4,15 +4,15 @@
         @csrf
         <div class="col-8">
             <div>
-                SKU: {{$SKU}}
+                SKU: 
                 <input wire:model="SKU" class="form-control m-1" required type="text" name="SKU">
-                Name: {{$name}}
+                Name: 
                 <input wire:model="name" class="form-control m-1" required type="text" name="name">
-                Price: {{$price}}
+                Price: 
                 <input wire:model="price" class="form-control m-1" required type="number" name="price">
             </div>
             Attributes:
-            {{-- <div>
+            <div>
                 <select wire:model="attname" name="attributes" class="form-control m-1">
                     <option value="">-- Choose attribute --</option>
                     
@@ -21,18 +21,16 @@
                     @endforeach
                 </select>
             </div>
-            Values: 
-            <div>
-                <select wire:model="attvalue" name="values" class="form-control">
-                    @if ($attvalues->count() == 0)
-                        <option value="">-- Choose attribute first --</option>
-                    @endif
-                    @foreach ($attvalues as $attvalue)
-                        <option value="{{ $attvalue->id }}">{{ $attvalue->name }}</option>
-                    @endforeach
-                </select>
-            </div> --}}
-
+            
+            
+            <div class="mt-4">   
+            @foreach($attvalues as $key => $attvalue)
+                    <div class="mt-2">
+                        <label for="values">{{$attvalue->att_value}}</label>
+                        <input wire:model="attvalue.{{ $key }}.att_value" class="form-control m-1" required type="text" name="values" placeholder="Please enter: {{$attvalue->att_value}}">
+                    </div>
+            @endforeach
+        </div>
         </div>
         <button type="submit" class="btn btn-primary m-2">Save</button>
 
