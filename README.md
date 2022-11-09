@@ -1,4 +1,4 @@
-## The expected outcome of the test**
+## The expected outcome :
 
 ### A web-app (accessible by an URL) containing two pages for:
 
