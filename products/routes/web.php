@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController as Product;
+use App\Http\Livewire\ProductForm as ProductForm;
 
 
 /*
@@ -19,9 +20,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 // Route::get('products/create', [App\Http\Controllers\ProductController::class, 'create'])->name('create');
+// Route::get('/product-form' , [App\Http\Livewire\ProductForm::class]);
+// Route::get('/product-form', ProductForm::class);
+
 
 Route::resource('products', Product::class);
-Route::get('/product-form' , [App\Http\Livewire\ProductForm::class]);
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

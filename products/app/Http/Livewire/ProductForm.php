@@ -9,19 +9,26 @@ use Livewire\Component;
 
 class ProductForm extends Component
 {
+
+    public $SKU;
+    public $name;
+    public $price;
+
     public $attnames;
     public $attvalues;
 
     public $attname;
     public $attvalue;
 
+    
 
-    public function mount()
-    {
-        $this->attnames = Attname::all();
-        $this->attvalues = collect();
+
+    // public function mount()
+    // {
+    //     $this->attnames = Attname::all();
+    //     $this->attvalues = collect();
        
-    }
+    // }
 
     public function render()
     {
@@ -33,11 +40,11 @@ class ProductForm extends Component
     //     $this->attvalues = Attvalue::where('attnames_id', $value)->get();
     //     $this->attvalue = $this->attvalues->first()->id;
     // }
-    public function updatedAttname($value)
-    {
+    // public function updatedAttname($value)
+    // {
         
-        $this->attvalues = Attvalue::where('attnames_id', $value)->get();
-        $this->attvalue = $this->attvalues->first()->id;
+    //     $this->attvalues = Attvalue::where('attnames_id', $value)->get();
+    //     $this->attvalue = $this->attvalues->first()->id;
         
-    }
+    // }
 }
