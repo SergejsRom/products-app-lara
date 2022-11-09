@@ -35,7 +35,7 @@ class ProductForm extends Component
     // }
     public function updatedAttname($value)
     {
-        dd($value);
+        
         $this->attvalues = Attvalue::where('attnames_id', $value)->get();
         $this->attvalue = $this->attvalues->first()->id;
         
