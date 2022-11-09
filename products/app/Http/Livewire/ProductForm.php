@@ -16,7 +16,7 @@ class ProductForm extends Component
 
     public $attnames;
    // public $attvalues;
-    public $attvalues = [];
+   public $attvalues = [];
 
     public $attname;
     public $attvalue;

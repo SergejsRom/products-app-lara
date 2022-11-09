@@ -37,7 +37,14 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-       
+        Product::create([
+            'SKU' => $request->input('SKU'),
+            'name' => $request->input('name'),
+            'price' => $request->input('price'),
+            'attributes' => $request->input('attributes'),
+            'values' => $request->input('values')
+        ]);
+        
         return redirect()->route('products.index');
     }
 
