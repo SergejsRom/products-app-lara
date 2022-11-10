@@ -2,7 +2,7 @@
     <form action="{{ route('products.store') }}" method="post" class="flex">
 
         @csrf
-        <div class="col-8">
+        <div class="col-12">
             <div>
                 SKU: 
                 <input wire:model="SKU" class="form-control m-1" required type="text" name="SKU">
@@ -27,7 +27,7 @@
             @foreach($attvalues as $key => $attvalue)
                     <div class="mt-2">
                         <label for="values">{{$attvalue->att_value}}:</label>
-                        <input wire:model.defer="attvalue.{{ $key }}.att_value" class="form-control m-1" required type="text" name="values" placeholder="Please enter: {{$attvalue->att_value}}">
+                        <input id="{{$attvalue->att_value}}"wire:model.defer="attvalue.{{ $key }}.att_value" class="form-control m-1" required type="text" name="values[]" placeholder="Please enter: {{$attvalue->att_value}}">
                     </div>
             @endforeach
         </div>

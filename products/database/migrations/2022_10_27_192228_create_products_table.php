@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('name')->nullable();
             $table->string('price')->nullable();
             $table->string('attributes')->nullable();
-            $table->string('values')->nullable();
+            $table->json('values')->nullable();
             $table->timestamps();
         });
     }

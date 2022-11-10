@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Validator;
+use App\Http\Livewire\ProductForm;
+use App\Models\Attname;
+use App\Models\Attvalue;
 
 class ProductController extends Controller
 {
@@ -15,7 +18,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::all()->sortBy('SKU');
+        $products = Product::all()->sortBy('name');
         return view('products.index', compact('products'));
     }
 
@@ -37,14 +40,21 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
+      //  dd($request->values);
+        $values_all = json_encode($request->values);
+        //$values_all = implode(",", $values_all);
+        
+
+        // $request->merge(['vlaues' => $values_array]);
+    //dd($values_all);
         Product::create([
+            'values' => $values_all,
             'SKU' => $request->input('SKU'),
             'name' => $request->input('name'),
             'price' => $request->input('price'),
             'attributes' => $request->input('attributes'),
-            'values' => $request->input('values')
-        ]);
-        
+            
+        ]);        
         return redirect()->route('products.index');
     }
 

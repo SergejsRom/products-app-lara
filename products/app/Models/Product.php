@@ -7,6 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
-    protected $fillable = ['SKU', 'name', 'price', 'attributes', 'values'=>'array'];
+    protected $fillable = ['SKU', 'name', 'price', 'attributes', 'values'];
+    protected $attributes = [
+        'values' => "{}",
+    ];
+    
     use HasFactory;
 }
