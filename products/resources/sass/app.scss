@@ -24,3 +24,8 @@
 #Height {
     color:red;
 }
+.att_value_field:before {
+    content:'.' attr(placeholder);
+    margin-right:5px;
+    color: green;
+}

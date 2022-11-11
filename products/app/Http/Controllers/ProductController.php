@@ -8,6 +8,7 @@ use Validator;
 use App\Http\Livewire\ProductForm;
 use App\Models\Attname;
 use App\Models\Attvalue;
+use Illuminate\Support\Arr;
 
 class ProductController extends Controller
 {
@@ -40,19 +41,30 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
+        
       //  dd($request->values);
-        $values_all = json_encode($request->values);
+        $values_input = ($request->values);
+        $values_att_name = ($request->att_value_name);
+      //  dd($values_att_name);
+      //  $values_together = [$values_input, $values_att_name];
+      //  $values_together = json_encode($values_together);
+      $values_input = json_encode($values_input);
+      $values_att_name = json_encode($values_att_name);
+       // dd($values_together);
+      
+        //$values_all = json_encode($request->values);
         //$values_all = implode(",", $values_all);
         
 
         // $request->merge(['vlaues' => $values_array]);
     //dd($values_all);
         Product::create([
-            'values' => $values_all,
+            'values' => $values_input,
             'SKU' => $request->input('SKU'),
             'name' => $request->input('name'),
             'price' => $request->input('price'),
             'attributes' => $request->input('attributes'),
+            'att_value_name' => $values_att_name,
             
         ]);        
         return redirect()->route('products.index');

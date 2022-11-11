@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('price')->nullable();
             $table->string('attributes')->nullable();
             $table->json('values')->nullable();
+            $table->json('att_value_name')->nullable();
             $table->timestamps();
         });
     }
