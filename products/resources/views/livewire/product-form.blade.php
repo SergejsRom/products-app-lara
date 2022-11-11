@@ -34,7 +34,10 @@
             @endforeach
         </div>
         </div>
-        <button type="submit" class="btn btn-primary m-2">Save</button>
-
+        <div>
+        <button type="submit" class="btn btn-success m-2">Save</button>
+        <a class="btn btn-danger" href="{{ route('products.index') }}">Cancel</a>
+        
+        </div>
     </form>
 </div>
