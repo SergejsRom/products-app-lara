@@ -12,10 +12,10 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
-                            <button wire:click="delete" type="button" class="nav-link btn btn-dark">DELETE</button>
+                            <button wire:click="delete" type="button" class="btn btn-dark">DELETE</button>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link btn btn-success" href="{{ route('products.create') }}">ADD NEW</a>
+                            <a class="btn btn-success" href="{{ route('products.create') }}">ADD NEW</a>
                         </li>
                     </ul>
                 </div>

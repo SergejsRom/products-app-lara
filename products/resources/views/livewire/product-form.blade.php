@@ -1,19 +1,16 @@
 <div>
-    <form action="{{ route('products.store') }}" method="post" class="flex">
+    <form id="product_list" action="{{ route('products.store') }}" method="post" class="flex">
         @csrf
 
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-light line">
             <div class="container">
-
                 <div class="collapse navbar-collapse mb-2" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
-
                     <ul class="navbar-nav me-auto mt-4">
                         <li>
                             <h4>Product ADD</h4>
                         </li>
                     </ul>
-
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
@@ -28,14 +25,12 @@
         </nav>
 
         <div class="col-12">
-            <div>
-                <h5 class="mt-2"> SKU: </h5>
-                <input wire:model="SKU" class="form-control m-1" required type="text" name="SKU">
+                <h5 class="mt-2 col-3"> SKU: </h5>
+                <input wire:model="SKU" class="form-control m-1 col-5" required type="text" name="SKU">
                 <h5 class="mt-2">Name: </h5>
                 <h5><input wire:model="name" class="form-control m-1" required type="text" name="name">
                     <h5>Price: </h5>
                     <input wire:model="price" class="form-control m-1" required type="number" name="price">
-            </div>
             <h5 class="mt-2">Attributes:</h5>
 
             <select wire:model="attname" name="attributes" class="form-control m-1">
