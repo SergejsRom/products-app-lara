@@ -46,3 +46,18 @@
 .width20 {
     width:20%;
 }
+.width80 {
+    width:80%;
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.furnituros_atvaizdavimas {
+    display: flex;
+    flex-wrap: wrap;
+flex-direction: column;
+}
