@@ -25,7 +25,8 @@ class ProductSeeder extends Seeder
             'name' => str_random(10),
             'price' => str_random(10),
             'attributes' => str_random(10),
-            'values' => str_random(10),
+            'values' => json_encode(["2"]),
+            'att_value_name' => json_encode(["3"]),
         ]);
     }
 }
