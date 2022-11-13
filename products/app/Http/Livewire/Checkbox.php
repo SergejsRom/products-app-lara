@@ -12,6 +12,7 @@ class Checkbox extends Component
     public $checkbox = [];
 
     public function mount() {
+        
         $this->products = Product::all();
     }
 

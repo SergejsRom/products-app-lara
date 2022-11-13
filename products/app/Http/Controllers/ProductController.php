@@ -45,12 +45,14 @@ class ProductController extends Controller
       //  dd($request->values);
         $values_input = ($request->values);
         $values_att_name = ($request->att_value_name);
-      //  dd($values_att_name);
+        // $values_input = implode(",", $values_input);
+        // $values_att_name = implode(",", $values_att_name);
+    // dd($values_att_name);
       //  $values_together = [$values_input, $values_att_name];
       //  $values_together = json_encode($values_together);
-      $values_input = json_encode($values_input);
-      $values_att_name = json_encode($values_att_name);
-       // dd($values_together);
+   // $values_input = json_encode($values_input);
+  //  $values_att_name = json_encode($values_att_name);
+       // dd($values_input);
       
         //$values_all = json_encode($request->values);
         //$values_all = implode(",", $values_all);
