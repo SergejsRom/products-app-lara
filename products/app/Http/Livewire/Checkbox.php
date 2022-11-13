@@ -11,8 +11,16 @@ class Checkbox extends Component
     public $products;
     public $checkbox = [];
 
+
     public function mount() {
         
+        $this->products = Product::all();
+    }
+
+    public function delete()
+    {
+        $products = Product::whereKey($this->checkbox);
+        $products->delete();
         $this->products = Product::all();
     }
 
@@ -20,4 +28,6 @@ class Checkbox extends Component
     {
         return view('livewire.checkbox');
     }
+
+    
 }

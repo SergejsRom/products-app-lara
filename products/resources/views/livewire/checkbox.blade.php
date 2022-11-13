@@ -1,5 +1,8 @@
+<div>
+    <button wire:click="delete" type="button" class="btn btn-dark">DELETE</button>
 <div class="row row-cols-4" >
     {{-- @json($checkbox) --}}
+    
     @foreach ($products as $product)
         <div class="col product-list">
             <input wire:model="checkbox" type="checkbox" value=" {{ $product->id}} ">
@@ -17,4 +20,5 @@
         </div>
     @endforeach
 
+</div>
 </div>
