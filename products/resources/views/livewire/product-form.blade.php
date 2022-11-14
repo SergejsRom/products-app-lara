@@ -1,5 +1,5 @@
 <div>
-    <form id="product_list" action="{{ route('products.store') }}" method="post">
+    <form id="product_form" action="{{ route('products.store') }}" method="post">
         @csrf
 
         <nav class="navbar navbar-expand-md navbar-light line">
@@ -26,23 +26,23 @@
         <div class="col-12">
             <div class="flex">
                 <h5 class="mt-2"> SKU: </h5>
-                <input wire:model="SKU" class="form-control m-1 col-5 width80" required type="text" name="SKU">
+                <input id="sku" wire:model="SKU" class="form-control m-1 col-5 width80" required type="text" name="SKU">
             </div>
             <div class="flex">
                 <h5 class="mt-2">Name: </h5>
-                <input wire:model="name" class="form-control m-1 width80" required type="text" name="name">
+                <input id="name" wire:model="name" class="form-control m-1 width80" required type="text" name="name">
             </div>
                 <div class="flex">
                 <h5 class="mt-2">Price: </h5>
-                <input wire:model="price" class="form-control m-1 width80" required type="number" name="price">
+                <input id="price" wire:model="price" class="form-control m-1 width80" required type="number" name="price">
             </div>
             <div class="flex">
-                <h5 class="mt-2">Attributes:</h5>
+                <h5 class="mt-2">Product type:</h5>
                 <select wire:model="attname" name="attributes" class="form-control m-1 width80">
-                    <option value="">-- Choose attribute --</option>
+                    <option id="productType" value="">-- Choose attribute --</option>
 
                     @foreach ($attnames as $attname)
-                        <option value="{{ $attname->id }}">{{ $attname->att_name }}</option>
+                        <option id="productType" value="{{ $attname->id }}">{{ $attname->att_name }}</option>
                     @endforeach
                 </select>
             </div>

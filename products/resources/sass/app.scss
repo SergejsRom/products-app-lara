@@ -7,6 +7,14 @@
 // Bootstrap
 @import 'bootstrap/scss/bootstrap';
 
+.row {
+    justify-content: space-evenly;
+}
+
+// show all page rows
+.row-cols-4 > * {
+    width: 20%;
+}
 
 .product-list {
     border: 1px solid grey;
@@ -15,34 +23,49 @@
     display: grid;
     justify-items: center;
 }
-.row {
-    justify-content: space-evenly;
+// all form
+#product_form {
+    padding-bottom: 10px;
 }
-.row-cols-4 > * {
-    width: 20%;
+
+// form field names
+#sku {
+    padding-left: 1px;
 }
+#name {
+    padding-left: 1px;
+}
+#price {
+    padding-left: 1px;
+}
+#productType {
+    background-color: lightgray;
+}
+
+
+// Form attributes fields
 #Height {
     color:red;
 }
-.att_value_field:before {
-    content:'.' attr(placeholder);
-    margin-right:5px;
-    color: green;
+#Width {
+    color:rgb(0, 26, 255);
+}
+#Length {
+    color:rgb(0, 255, 55);
+}
+#Size {
+    color:rgb(6, 45, 117);
+}
+#Weight {
+    color:rgb(168, 166, 45);
 }
 
-#product_list {
-    padding-bottom: 10px;
-}
-#sku {
-    width: 80%;
-    float: right;
-}
-
-
+// line under Product ADD
 .line {
     border-bottom: 3px solid grey;
 }
 
+// just widths
 .width20 {
     width:20%;
 }
@@ -50,6 +73,7 @@
     width:80%;
 }
 
+// flex anywhere
 .flex {
     display: flex;
     align-items: center;
