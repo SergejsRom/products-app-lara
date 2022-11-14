@@ -19,6 +19,7 @@ class ProductSeeder extends Seeder
      */
     public function run()
     {
+        for ($i=0; $i < 20; $i++) { 
         DB::table('products')->insert([
 
             'SKU' => str_random(10),
@@ -29,4 +30,5 @@ class ProductSeeder extends Seeder
             'att_value_name' => json_encode(["3"]),
         ]);
     }
+}
 }

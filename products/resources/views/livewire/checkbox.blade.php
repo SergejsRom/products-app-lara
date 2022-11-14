@@ -32,13 +32,14 @@
                         <h5>{{ $product->name }}</h5>
                         <h5>{{ $product->price }}</h5>
                         <h6>{{ $product->attributes }}</h6>
+                        <div class="furnituros_atvaizdavimas">
                         @foreach ($product->values as $item)
                             <h5>{{ $item }}</h5>
                         @endforeach
                         @foreach ($product->att_value_name as $item)
                             <h5>{{ $item }}</h5>
                         @endforeach
-
+                        </div>
                     </div>
                 @endforeach
 
