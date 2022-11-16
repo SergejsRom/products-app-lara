@@ -10,7 +10,7 @@ class Checkbox extends Component
 {
     public $products;
     public $checkbox = [];
-
+    public $dvd = 'MB';
 
     public function mount() {
         

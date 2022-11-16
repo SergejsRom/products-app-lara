@@ -23,7 +23,7 @@ class ProductForm extends Component
 
     public $selected = [];
     
-    
+    protected $rules = ['SKU' => 'min:3|unique:products'];
 
 
      public function mount()
@@ -40,10 +40,15 @@ class ProductForm extends Component
 
      public function updatedAttname($value) 
      {
+         $this->validate();
          $this->attvalues = Attvalue::where('attnames_id', $value)->get();
          $this->attvalue = $this->attvalues->first()->id;
+         
         //dd($this->attvalue);
      }
-
+     public function updatedSKU($value) 
+     {
+        $this->validateOnly('SKU');
+     }
      
 }
