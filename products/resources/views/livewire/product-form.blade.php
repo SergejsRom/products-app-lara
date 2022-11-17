@@ -64,7 +64,7 @@
             @foreach ($attvalues as $key => $attvalue)
                 <div class="flex">
                     <h5><label for="values">{{ $attvalue->att_value }}:</label></h5>
-                    <input id="{{ $attvalue->att_value }}" wire:model.defer="attvalue.{{ $key }}.att_value"
+                    <input id="{{ strtok($attvalue->att_value,' ') }}" wire:model.defer="attvalue.{{ $key }}.att_value"
                         class="form-control m-1 width80" required type="text" name="values[]"
                         placeholder="{{ $attvalue->att_value }}">
                     <input type="hidden" name="att_value_name[]" value="{{ $attvalue->att_value }}">
