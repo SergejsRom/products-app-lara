@@ -60,6 +60,7 @@ class ProductController extends Controller
 
         // $request->merge(['vlaues' => $values_array]);
     //dd($values_all);
+    
         Product::create([
             'values' => $values_input,
             'SKU' => $request->input('SKU'),

@@ -18,12 +18,25 @@ class ProductForm extends Component
     public $attvalues;
 
     public $attname;
-    public $attvalue = [];
+    public $attvalue = "attvalue.*.att_value";
     public $att_value_name;
+    public $att_description;
+   
 
     public $selected = [];
     
-    protected $rules = ['SKU' => 'min:3|unique:products'];
+    protected $rules = [
+        'SKU' => 'required|min:3|unique:products',
+        'name' => 'required|min:3',
+        'price' => 'required|numeric',
+        'attvalue' => 'required|array|min:1',
+        'attvalue.*.att_value' => 'required|numeric',
+];
+
+    protected $validationAttributes = [
+        'SKU' => 'SKU',
+        'attvalue.*.att_value' => 'value',
+    ];
 
 
      public function mount()
@@ -40,15 +53,40 @@ class ProductForm extends Component
 
      public function updatedAttname($value) 
      {
-         $this->validate();
-         $this->attvalues = Attvalue::where('attnames_id', $value)->get();
-         $this->attvalue = $this->attvalues->first()->id;
-         
-        //dd($this->attvalue);
+      //  dd($value);
+        //$this->validate();
+        if ($this->attname !== "") {
+            $this->attvalues = Attvalue::where('attnames_id', $value)->get();
+            $this->attvalue = $this->attvalues->first()->id;
+            return $this->attvalue;
+        }
+        
+        $this->mount();
      }
+
      public function updatedSKU($value) 
      {
-        $this->validateOnly('SKU');
+        $this->validateOnly('SKU');   
      }
+
+     public function updatedName($value) 
+     {
+        $this->validateOnly('name');   
+     }
+
+     public function updatedPrice($value) 
+     {
+        $this->validateOnly('price');   
+     }
+
+      public function updatedAttvalue($value) 
+      {
+         $this->validate();   
+      }
+
+    //  public function updatedValues($value) 
+    //  {
+    //     $this->validateOnly('values');   
+    //  }
      
 }

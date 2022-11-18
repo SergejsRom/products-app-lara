@@ -19,6 +19,7 @@ return new class extends Migration
         
             $table->foreign('attnames_id')->references('id')->on('attnames');
             $table->string('att_value')->nullable();
+            $table->string('att_description')->nullable();
             $table->timestamps();
         });
     }

@@ -85,3 +85,17 @@
     flex-wrap: wrap;
 flex-direction: column;
 }
+
+.bg-lightblue {
+    background-color: lightblue;
+    padding: 2px;
+    text-align: center;
+    border-radius: 7px;
+    font-size: x-small;
+}
+
+.att_values_box {
+    padding: 3px;
+    border: 2px solid lightblue;
+    border-radius: 10px;
+}

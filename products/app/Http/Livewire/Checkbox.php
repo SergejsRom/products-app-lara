@@ -10,7 +10,7 @@ class Checkbox extends Component
 {
     public $products;
     public $checkbox = [];
-    public $dvd = 'MB';
+    
 
     public function mount() {
         
@@ -21,7 +21,7 @@ class Checkbox extends Component
     {
         $products = Product::whereKey($this->checkbox);
         $products->delete();
-        $this->products = Product::all();
+        $this->mount();
     }
 
     public function render()

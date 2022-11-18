@@ -22,7 +22,7 @@
             </div>
         </nav>
         <div>
-            <div class="row row-cols-4">
+            <div class="row row-cols-auto-6">
                 {{-- @json($checkbox) --}}
 
                 @foreach ($products as $product)
