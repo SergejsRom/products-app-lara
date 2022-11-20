@@ -23,9 +23,10 @@ Route::get('/', function () {
 // Route::get('/product-form' , [App\Http\Livewire\ProductForm::class]);
 // Route::get('/product-form', ProductForm::class);
 
-
+Route::post('products/create', [Product::class, 'store'])->middleware(['honey']);
 Route::resource('products', Product::class);
 Auth::routes();
+
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 

@@ -12,9 +12,9 @@
 }
 
 // show all page rows
-.row-cols-4 > * {
-    width: 20%;
-}
+// .row-cols-4 > * {
+//     width: 20%;
+// }
 
 .product-list {
     border: 1px solid grey;
@@ -22,6 +22,16 @@
     padding: 5px;
     display: grid;
     justify-items: center;
+}
+.checkbox-posititon {
+    position: relative;
+    top: 10px;
+    left: 10px;
+    justify-self: start;
+    width: 15px;
+    height: 15px;
+    background-color: green;
+    border: 2px solid lightblue;
 }
 // all form
 #product_form {
@@ -99,3 +109,8 @@ flex-direction: column;
     border: 2px solid lightblue;
     border-radius: 10px;
 }
+
+.margin10 {
+    margin: 0 10px;
+}
+

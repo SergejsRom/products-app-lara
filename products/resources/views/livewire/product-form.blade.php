@@ -13,19 +13,27 @@
                 </ul>
                 <!-- Right Side -->
                 <ul class="navbar-nav ms-auto">
-                    @if ($errors->count() == 0)
+                    @if ($errors->count() !== 0 || $attname == "" || $attvalue = "")
+                    <li class="nav-item">
+                        <button type="button" class="btn btn-success m-2" disabled>Please check the form</button>
+                    </li>    
+                    @else
+                    <li class="nav-item">
+                        <button type="submit" class="btn btn-success m-2">SAVE</button>
+                    </li>
+                    @endif
+
+                    {{-- @if ($errors->count() == 0)
                         <li class="nav-item">
                             <button type="submit" class="btn btn-success m-2">SAVE</button>
                         </li>
                     @endif
-                    @if ($errors->count() !== 0)
+                    @if ($errors->count() !== 0 || $attname == "")
                         <li class="nav-item">
                             <button type="button" class="btn btn-success m-2" disabled>Please check the form</button>
                         </li>
-                    @endif
-                    {{-- <li class="nav-item">
-                        <button type="submit" class="btn btn-success m-2">SAVE</button>
-                    </li> --}}
+                    @endif --}}
+                    
                     <li class="nav-item">
                         <a class="btn btn-danger mt-2" href="{{ route('products.index') }}">CANCEL</a>
                     </li>
@@ -61,7 +69,7 @@
             @endif
             <div class="flex">
                 <h5 class="mt-2">Price: </h5>
-                <input id="price" wire:model="price" class="form-control m-1 width80" required type="number"
+                <input id="price" wire:model="price" class="form-control m-1 width80" required type="text"
                     name="price">
             </div>
             @if ($errors->has('price'))
@@ -72,7 +80,11 @@
             <div class="flex">
                 <h5 class="mt-2">Product type:</h5>
                 <select wire:model="attname" name="attributes" class="form-control m-1 width80">
+                    @if ($attnames == "")
+                        <option id="productType" value="">-- Type switcher --</option>
+                    @endif
                     <option id="productType" value="">-- Type switcher --</option>
+                    
 
                     @foreach ($attnames as $attname)
                         <option id="productType" value="{{ $attname->id }}">{{ $attname->att_name }}</option>
@@ -99,6 +111,7 @@
                 @endif
             </div>
             @endif
+            
         </div>
     </form>
 </div>

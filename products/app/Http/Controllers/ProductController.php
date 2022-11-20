@@ -40,36 +40,20 @@ class ProductController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        
-      //  dd($request->values);
-        $values_input = ($request->values);
-        $values_att_name = ($request->att_value_name);
-        // $values_input = implode(",", $values_input);
-        // $values_att_name = implode(",", $values_att_name);
-    // dd($values_att_name);
-      //  $values_together = [$values_input, $values_att_name];
-      //  $values_together = json_encode($values_together);
-   // $values_input = json_encode($values_input);
-  //  $values_att_name = json_encode($values_att_name);
-       // dd($values_input);
-      
-        //$values_all = json_encode($request->values);
-        //$values_all = implode(",", $values_all);
-        
-
-        // $request->merge(['vlaues' => $values_array]);
-    //dd($values_all);
+     {
+         $values_input = ($request->values);
+         $values_att_name = ($request->att_value_name);
     
-        Product::create([
-            'values' => $values_input,
-            'SKU' => $request->input('SKU'),
-            'name' => $request->input('name'),
-            'price' => $request->input('price'),
-            'attributes' => $request->input('attributes'),
-            'att_value_name' => $values_att_name,
+         Product::create([
+             'values' => $values_input,
+             'SKU' => $request->input('SKU'),
+             'name' => $request->input('name'),
+             'price' => $request->input('price'),
+             'attributes' => $request->input('attributes'),
+             'att_value_name' => $values_att_name,
             
-        ]);        
+         ]);        
+         
         return redirect()->route('products.index');
     }
 

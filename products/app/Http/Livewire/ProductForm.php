@@ -8,9 +8,10 @@ use App\Models\Product;
 use Livewire\Component;
 use Validator;
 
+
 class ProductForm extends Component
 {
-
+    // public $formok;
     public $SKU;
     public $name;
     public $price;
@@ -32,6 +33,7 @@ class ProductForm extends Component
         'price' => 'required|numeric',
         'attvalue' => 'required|array|min:1',
         'attvalue.*.att_value' => 'required|numeric',
+        'attname' => 'required'
 ];
 
     protected $validationAttributes = [
@@ -53,15 +55,13 @@ class ProductForm extends Component
     }
 
      public function updatedAttname($value) 
-     {
-      //  dd($value);
-        
+     {      
         if ($this->attname !== "") {
             $this->attvalues = Attvalue::where('attnames_id', $value)->get();
             $this->attvalue = $this->attvalues->first()->id;
+            $this->validate();
             return $this->attvalue;
         }
-        
         $this->mount();
      }
 
@@ -85,9 +85,12 @@ class ProductForm extends Component
          $this->validate();   
       }
 
-    //  public function updatedValues($value) 
-    //  {
-    //     $this->validateOnly('values');   
-    //  }
+      public function updatedValues($value) 
+      {
+         $this->validateOnly('attvalue.*.att_value');   
+      }
+    //   public function save($value){
+    //     $this->validate();
+    //   }
      
 }
