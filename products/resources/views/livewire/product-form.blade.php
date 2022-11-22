@@ -80,10 +80,10 @@
             <div class="flex">
                 <h5 class="mt-2">Product type:</h5>
                 <select wire:model="attname" name="attributes" class="form-control m-1 width80">
-                    @if ($attnames == "")
+                    {{-- @if ($attnames == "")
                         <option id="productType" value="">-- Type switcher --</option>
-                    @endif
-                    <option id="productType" value="">-- Type switcher --</option>
+                    @endif --}}
+                    <option id="productType" value="" selected>-- Type switcher --</option>
                     
 
                     @foreach ($attnames as $attname)
