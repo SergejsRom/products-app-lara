@@ -15,9 +15,9 @@
                 <ul class="navbar-nav ms-auto">
                     @if ($errors->count() !== 0 || $attname == "" || $attvalue = "")
                     <li class="nav-item">
-                        <button type="button" class="btn btn-success m-2" >Save</button>
+                        <button type="button" class="btn btn-success m-2">Save</button>
                     </li>    
-                   @else
+                    @else
                     <li class="nav-item">
                         <button type="submit" class="btn btn-success m-2">Save</button>
                     </li>
@@ -79,15 +79,13 @@
             @endif
             <div class="flex">
                 <h5 class="mt-2">Product type:</h5>
-                <select wire:model="attname" id="productType" name="attributes" class="form-control m-1 width80">
-                    {{-- @if ($attnames == "")
-                        <option value="">-- Type switcher --</option>
-                    @endif --}}
-                    <option id="productType" value="" selected>-- Type switcher --</option>
+                <select wire:model="attname" name="attributes" id="productType" class="form-control m-1 width80">
+                    
+                    <option value="" selected>-- Type switcher --</option>
                     
 
                     @foreach ($attnames as $attname)
-                        <option id="$attname->att_name" value="{{ $attname->id }}">{{ $attname->att_name }}</option>
+                        <option value="{{ $attname->id }}">{{ $attname->att_name }}</option>
                     @endforeach
                 </select>
             </div>
