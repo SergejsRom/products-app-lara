@@ -28,8 +28,8 @@ class ProductForm extends Component
    
     
     protected $rules = [
-        'SKU' => 'required|min:3|unique:products',
-        'name' => 'required|min:3',
+        'SKU' => 'required|min:3|max:10|unique:products',
+        'name' => 'required|min:3|max:10',
         'price' => 'required|numeric',
         'attvalue' => 'required|array|min:1',
         'attvalue.*.att_value' => 'required|numeric',
@@ -56,7 +56,7 @@ class ProductForm extends Component
 
      public function updatedAttname($value) 
      {      
-         if ($this->attname !== "" || $this->attname !== null) {
+         if ($this->attname !== "") {
             $this->attvalues = Attvalue::where('attnames_id', $value)->get();
             $this->attvalue = $this->attvalues->first()->id;
             $this->validate();

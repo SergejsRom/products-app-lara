@@ -20,7 +20,7 @@ class ProductController extends Controller
     public function index()
     {
         $products = Product::all()->sortBy('name');
-        return view('products.index', compact('products'));
+        return view('index', compact('products'));
     }
 
     /**
@@ -30,7 +30,7 @@ class ProductController extends Controller
      */
     public function create()
     {  
-        return view('products.create');
+        return view('create');
     }
 
     /**
@@ -54,7 +54,7 @@ class ProductController extends Controller
             
          ]);        
          
-        return redirect()->route('products.index');
+        return redirect()->route('index');
     }
 
     /**

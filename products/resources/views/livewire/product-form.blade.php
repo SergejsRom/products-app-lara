@@ -15,11 +15,11 @@
                 <ul class="navbar-nav ms-auto">
                     @if ($errors->count() !== 0 || $attname == "" || $attvalue = "")
                     <li class="nav-item">
-                        <button type="button" class="btn btn-success m-2" disabled>Please check the form</button>
+                        <button type="button" class="btn btn-success m-2" >Save</button>
                     </li>    
-                    @else
+                   @else
                     <li class="nav-item">
-                        <button type="submit" class="btn btn-success m-2">SAVE</button>
+                        <button type="submit" class="btn btn-success m-2">Save</button>
                     </li>
                     @endif
 
@@ -35,7 +35,7 @@
                     @endif --}}
                     
                     <li class="nav-item">
-                        <a class="btn btn-danger mt-2" href="{{ route('products.index') }}">CANCEL</a>
+                        <a class="btn btn-danger mt-2" href="{{ route('index') }}">CANCEL</a>
                     </li>
                 </ul>
 
@@ -79,15 +79,15 @@
             @endif
             <div class="flex">
                 <h5 class="mt-2">Product type:</h5>
-                <select wire:model="attname" name="attributes" class="form-control m-1 width80">
+                <select wire:model="attname" id="productType" name="attributes" class="form-control m-1 width80">
                     {{-- @if ($attnames == "")
-                        <option id="productType" value="">-- Type switcher --</option>
+                        <option value="">-- Type switcher --</option>
                     @endif --}}
                     <option id="productType" value="" selected>-- Type switcher --</option>
                     
 
                     @foreach ($attnames as $attname)
-                        <option id="productType" value="{{ $attname->id }}">{{ $attname->att_name }}</option>
+                        <option id="$attname->att_name" value="{{ $attname->id }}">{{ $attname->att_name }}</option>
                     @endforeach
                 </select>
             </div>
@@ -97,7 +97,7 @@
                 @foreach ($attvalues as $key => $attvalue)
                     <div class="flex">
                         <h5><label for="values">{{ $attvalue->att_value }}:</label></h5>
-                        <input id="{{ strtok($attvalue->att_value, ' ') }}"
+                        <input id="{{ strtolower(strtok($attvalue->att_value, ' ')) }}"
                             wire:model="attvalue.{{ $key }}.att_value" class="form-control m-1 width80"
                             required type="text" name="values[]"
                             placeholder="Please provide {{ $attvalue->att_description }}">

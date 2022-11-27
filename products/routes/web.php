@@ -16,9 +16,9 @@ use App\Http\Livewire\ProductForm as ProductForm;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [Product::class, 'index'])->name('index');
+//Route::get('/', [Product::class, 'create']);
+Route::get('add-product', [Product::class, 'create'])->name('add-product');
 // Route::get('products/create', [App\Http\Controllers\ProductController::class, 'create'])->name('create');
 // Route::get('/product-form' , [App\Http\Livewire\ProductForm::class]);
 // Route::get('/product-form', ProductForm::class);

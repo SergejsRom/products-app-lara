@@ -12,10 +12,10 @@
                 <!-- Right Side -->
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <button wire:click="delete" type="button" class="btn btn-dark m-2">DELETE</button>
+                        <button wire:click="delete" type="button" class="btn btn-dark m-2">MASS DELETE</button>
                     </li>
                     <li class="nav-item">
-                        <a class="btn btn-success mt-2" href="{{ route('products.create') }}">ADD NEW</a>
+                        <a class="btn btn-success mt-2" href="{{ route('add-product') }}">ADD</a>
                     </li>
                 </ul>
 
@@ -48,7 +48,7 @@
 
             @foreach ($products as $product)
                 <div class="col-xl-3 col-sm-12 col-md-5 col-lg-3 product-list att_values_box">
-                    <input wire:model="checkbox" class="checkbox-posititon" type="checkbox"
+                    <input wire:model="checkbox" class="checkbox-posititon {{ $delete_checkbox }}" type="checkbox"
                         value=" {{ $product->id }} ">
                     <h3>SKU: {{ $product->SKU }}</h3>
                     <h5>Name: {{ $product->name }}</h5>
